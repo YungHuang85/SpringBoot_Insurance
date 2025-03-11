@@ -1,0 +1,61 @@
+		body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f1f3f4;
+            margin: 0;
+            padding: 0;
+        }
+      
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+		th, td {
+		    padding: 12px;
+		    text-align: center; /* 所有表格文字置中 */
+		    border-bottom: 1px solid #ddd;
+		    font-size: 14px;
+		}
+		
+		th {
+		    background-color: #f8f9fa;
+		    color: #333;
+		    font-weight: bold;
+		}
+		
+		td {
+		    word-wrap: break-word;
+		    font-size: 11px;
+		    color: #555;
+		}
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f3f4;
+        }
+        
+        button {
+		    background-color: black; /* 按鈕背景色 */
+		    color: white; /* 文字顏色 */
+		    border: none; /* 無邊框 */
+		    padding: 8px 15px; /* 內距 */
+		    font-size: 16px; /* 文字大小 */
+		    border-radius: 5px; 
+		    transition: background-color 0.3s; /* 動畫效果 */
+		}
+
+		.btn:hover {
+		    background-color: rgb(56, 53, 53);; /* 滑鼠移上去時的背景色 */
+		}
+        

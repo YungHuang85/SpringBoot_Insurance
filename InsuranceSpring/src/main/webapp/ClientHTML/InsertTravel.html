@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>新增投保資料</title>
+    <link rel="stylesheet" href="../ClientCSS/InsertTravel.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>新增投保資料</h2>
+
+        <form action="../clients/insert" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <div id="inputFields">
+                <fieldset>
+                    <legend>新增1</legend>
+                    <div class="inputRow">
+                        <div class="inputField"> <span>保單號碼:</span> <input type="text" name="insuranceNumber[]"
+                                placeholder="保單號碼" required> </div>
+                        <div class="inputField"> <span>姓名:</span> <input type="text" name="username[]" placeholder="姓名"
+                                required> </div>
+                        <div class="inputField"> <span>身分證字號:</span> <input type="text" name="id_number[]"
+                                placeholder="身分證字號" maxlength="10" pattern="^[A-Z]{1}[1289]{1}[0-9]{8}$" title="填寫格式錯誤"
+                                required> </div>
+                        <div class="inputField"> <span>生日:</span> <input type="date" name="birthday[]" placeholder="生日">
+                        </div>
+                        <div class="inputField">
+                            <span>性別:</span>
+                            <select name="gender[]" required class="custom-select">
+                                <option value="男" selected>男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="inputRow">
+                        <div class="inputField"> <span>電話:</span> <input type="tel" name="phone[]" placeholder="電話"
+                                maxlength="10" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>E-mail:</span> <input type="email" name="email[]"
+                                placeholder="E-mail" required> </div>
+                        <div class="inputField"> <span>地址:</span> <input type="text" name="address[]" placeholder="地址"
+                                required> </div>
+                        <div class="inputField"> <span>投保商品:</span> <input type="text" name="insuranceProduct[]"
+                                placeholder="投保商品" required> </div>
+                        <div class="inputField">
+                            <span>旅遊地區:</span>
+                            <select name="country[]" required class="custom-select">
+                                <option value="" disabled selected>請選擇旅遊地區</option>
+                                <option value="台灣">台灣</option>
+                                <option value="日韓">日韓</option>
+                                <option value="東南亞">東南亞</option>
+                                <option value="歐洲">歐洲</option>
+                                <option value="美加">美加</option>
+                                <option value="紐澳">紐澳</option>
+                            </select>
+                        </div>
+                        <div class="inputField"> <span>生效時間:</span> <input type="date" name="startTime[]"
+                                placeholder="生效時間"> </div>
+                        <div class="inputField"> <span>結束時間:</span> <input type="date" name="endTime[]"
+                                placeholder="結束時間"> </div>
+                        <div class="inputField">
+                            <span>意外身故:</span>
+                            <select name="sumAssured[]" required class="custom-select">
+                                <option value="" disabled selected>請選擇意外身故</option>
+                                <option value="100萬">100萬</option>
+                                <option value="300萬">300萬</option>
+                                <option value="500萬">500萬</option>
+                                <option value="700萬">700萬</option>
+                                <option value="1000萬">1000萬</option>
+                            </select>
+                        </div>
+                        <div class="inputField"> <span>意外身故$:</span> <input type="text" name="premiums[]"
+                                placeholder="意外身故$" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>傷害醫療:</span> <input type="text" name="medicalTreatment[]"
+                                placeholder="傷害醫療" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>突發疾病:</span> <input type="text" name="overseasIllness[]"
+                                placeholder="突發疾病" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>醫療專機:</span> <input type="text" name="overseasFlights[]"
+                                placeholder="醫療專機" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>總保費:</span> <input type="text" name="totalCost[]"
+                                placeholder="總保費" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField">
+                            <span>與投保人關係:</span>
+                            <select name="relationship[]" required class="custom-select">
+                                <option value="" disabled selected>請選擇與投保人關係</option>
+                                <option value="本人">本人</option>
+                                <option value="配偶">配偶</option>
+                                <option value="父子">父子</option>
+                                <option value="父女">父女</option>
+                                <option value="母子">母子</option>
+                                <option value="母女">母女</option>
+                                <option value="(外)祖父母">(外)祖父母</option>
+                                <option value="(外)孫子女">(外)孫子女</option>
+                            </select>
+                        </div>
+                        <div class="inputField"> <span>受益人姓名:</span> <input type="text" name="beneficiaryName[]"
+                                placeholder="受益人姓名" required> </div>
+                    </div>
+                    <div class="inputRow">
+
+                        <div class="inputField"> <span>受益人ID:</span> <input type="text" name="beneficiaryID[]"
+                                placeholder="受益人ID" maxlength="10" pattern="^[A-Z]{1}[1289]{1}[0-9]{8}$" title="填寫格式錯誤"
+                                required> </div>
+                        <div class="inputField"> <span>受益人生日:</span> <input type="date" name="beneficiaryBirthday[]"
+                                placeholder="受益人生日"> </div>
+                        <div class="inputField">
+                            <span>受益人性別:</span>
+                            <select name="beneficiaryGender[]" required class="custom-select">
+                                <option value="男" selected>男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                        <div class="inputField"> <span>受益人電話:</span> <input type="tel" name="beneficiaryPhone[]"
+                                placeholder="受益人電話" maxlength="10" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>受益人地址:</span> <input type="text" name="beneficiaryAddress[]"
+                                placeholder="受益人地址" required> </div>
+                    </div>
+                    <div class="inputField">
+                        <span>上傳圖片:</span>
+                        <input type="file" name="profilePicture[]" accept="image/*">
+                    </div>
+                    <hr />
+                    <button type="button" class="remove-button" onclick="removeFieldset(this)">移除</button>
+                </fieldset>
+            </div>
+            <button type="button" onclick="addFieldset()">新增一組</button>
+            <input type="submit" value="插入資料">
+            <button class="btn1" type="button" onclick="history.back()">回到上一頁</button>
+            <button class="btn2" type="button" onclick="fillRandomData()">一鍵插入</button>
+        </form>
+
+
+
+
+    </div>
+</body>
+</head>
+<script>
+    let fieldsetCounter = 1;
+
+    function addFieldset() {
+        fieldsetCounter++;
+        const fieldsetTemplate = `
+                <fieldset>
+                    <legend>新增${fieldsetCounter}</legend>
+                    <div class="inputRow">
+                        <div class="inputField"> <span>保單號碼:</span> <input type="text" name="insuranceNumber[]"
+                                placeholder="保單號碼" required> </div>
+                        <div class="inputField"> <span>姓名:</span> <input type="text" name="username[]" placeholder="姓名"
+                                required> </div>
+                        <div class="inputField"> <span>身分證字號:</span> <input type="text" name="id_number[]"
+                                placeholder="身分證字號" maxlength="10" pattern="^[A-Z]{1}[1289]{1}[0-9]{8}$" title="填寫格式錯誤"
+                                required> </div>
+                        <div class="inputField"> <span>生日:</span> <input type="date" name="birthday[]" placeholder="生日">
+                        </div>
+                        <div class="inputField">
+                            <span>性別:</span>
+                            <select name="gender[]" required class="custom-select">
+                                <option value="男" selected>男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="inputRow">
+                        <div class="inputField"> <span>電話:</span> <input type="tel" name="phone[]" placeholder="電話"
+                                maxlength="10" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>E-mail:</span> <input type="email" name="email[]"
+                                placeholder="E-mail" required> </div>
+                        <div class="inputField"> <span>地址:</span> <input type="text" name="address[]" placeholder="地址"
+                                required> </div>
+                        <div class="inputField"> <span>投保商品:</span> <input type="text" name="insuranceProduct[]"
+                                placeholder="投保商品" required> </div>
+                        <div class="inputField">
+                            <span>旅遊地區:</span>
+                            <select name="country[]" required class="custom-select">
+                                <option value="" disabled selected>請選擇旅遊地區</option>
+                                <option value="台灣">台灣</option>
+                                <option value="日韓">日韓</option>
+                                <option value="東南亞">東南亞</option>
+                                <option value="歐洲">歐洲</option>
+                                <option value="美加">美加</option>
+                                <option value="紐澳">紐澳</option>
+                            </select>
+                        </div>
+                        <div class="inputField"> <span>生效時間:</span> <input type="date" name="startTime[]"
+                                placeholder="生效時間"> </div>
+                        <div class="inputField"> <span>結束時間:</span> <input type="date" name="endTime[]"
+                                placeholder="結束時間"> </div>
+                        <div class="inputField">
+                            <span>意外身故:</span>
+                            <select name="sumAssured[]" required class="custom-select">
+                                <option value="" disabled selected>請選擇意外身故</option>
+                                <option value="100萬">100萬</option>
+                                <option value="300萬">300萬</option>
+                                <option value="500萬">500萬</option>
+                                <option value="700萬">700萬</option>
+                                <option value="1000萬">1000萬</option>
+                            </select>
+                        </div>
+                        <div class="inputField"> <span>意外身故$:</span> <input type="text" name="premiums[]"
+                                placeholder="意外身故$" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>傷害醫療:</span> <input type="text" name="medicalTreatment[]"
+                                placeholder="傷害醫療" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>突發疾病:</span> <input type="text" name="overseasIllness[]"
+                                placeholder="突發疾病" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>醫療專機:</span> <input type="text" name="overseasFlights[]"
+                                placeholder="醫療專機" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>總保費:</span> <input type="text" name="totalCost[]"
+                                placeholder="總保費" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField">
+                            <span>與投保人關係:</span>
+                            <select name="relationship[]" required class="custom-select">
+                                <option value="" disabled selected>請選擇與投保人關係</option>
+                                <option value="本人">本人</option>
+                                <option value="配偶">配偶</option>
+                                <option value="父子">父子</option>
+                                <option value="父女">父女</option>
+                                <option value="母子">母子</option>
+                                <option value="母女">母女</option>
+                                <option value="(外)祖父母">(外)祖父母</option>
+                                <option value="(外)孫子女">(外)孫子女</option>
+                            </select>
+                        </div>
+                        <div class="inputField"> <span>受益人姓名:</span> <input type="text" name="beneficiaryName[]"
+                                placeholder="受益人姓名" required> </div>
+                    </div>
+                    <div class="inputRow">
+
+                        <div class="inputField"> <span>受益人ID:</span> <input type="text" name="beneficiaryID[]"
+                                placeholder="受益人ID" maxlength="10" pattern="^[A-Z]{1}[1289]{1}[0-9]{8}$" title="填寫格式錯誤"
+                                required> </div>
+                        <div class="inputField"> <span>受益人生日:</span> <input type="date" name="beneficiaryBirthday[]"
+                                placeholder="受益人生日"> </div>
+                        <div class="inputField">
+                            <span>受益人性別:</span>
+                            <select name="beneficiaryGender[]" required class="custom-select">
+                                <option value="男" selected>男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                        <div class="inputField"> <span>受益人電話:</span> <input type="tel" name="beneficiaryPhone[]"
+                                placeholder="受益人電話" maxlength="10" pattern="^[0-9]+$" title="填寫格式錯誤" required> </div>
+                        <div class="inputField"> <span>受益人地址:</span> <input type="text" name="beneficiaryAddress[]"
+                                placeholder="受益人地址" required> </div>
+                    </div>
+                    <div class="inputField">
+                        <span>上傳圖片:</span>
+                        <input type="file" name="profilePicture[]" accept="image/*">
+                    </div>
+                    <hr />
+                    <button type="button" class="remove-button" onclick="removeFieldset(this)">移除</button>
+                </fieldset>
+            `;
+        const container = document.getElementById('inputFields');
+        container.insertAdjacentHTML('beforeend', fieldsetTemplate);
+    }
+
+    function removeFieldset(button) {
+        const fieldset = button.parentElement;
+        fieldset.remove();
+        updateFieldsetLegends();
+    }
+
+    function updateFieldsetLegends() {
+        const fieldsets = document.querySelectorAll('#inputFields fieldset');
+        fieldsetCounter = 0;
+        fieldsets.forEach((fieldset, index) => {
+            fieldsetCounter = index + 1;
+            const legend = fieldset.querySelector('legend');
+            legend.textContent = `新增${fieldsetCounter}`;
+        });
+    }
+
+    function validateForm() {
+        return true;
+    }
+</script>
+<script>
+    function fillRandomData() {
+        const fieldsets = document.querySelectorAll('#inputFields fieldset');
+        fieldsets.forEach((fieldset) => {
+            const randomInsuranceNumber = `T${Math.floor(Math.random() * 10000)}`;
+            const randomName = getRandomName();
+            const randomId = getRandomId();
+            const randomPhone = `09${Math.floor(Math.random() * 90000000 + 10000000)}`;
+            const randomEmail = `${randomName}@gmail.com`;
+            const randomAddress = `台北市南港區`;
+            const randomProduct = `旅平險`;
+
+            const startDate = new Date(1970, 0, 1);
+            const endDate = new Date(2000, 12, 31);
+            const randomBirthday = getRandomDate(startDate, endDate);
+            const randomBenebirthday = getRandomDate(startDate, endDate);
+
+            const randomCountry = getRandomOption(['台灣', '日韓', '東南亞', '歐洲', '美加', '紐澳']);
+            const randomSumAssured = getRandomOption(['100萬', '300萬', '500萬', '700萬', '1000萬']);
+            const randomRelationship = getRandomOption(['本人', '配偶', '父子', '父女', '母子', '母女', '(外)祖父母', '(外)孫子女']);
+            const randomBeneficiaryName = getRandomName();
+            const randomBeneficiaryId = getRandomId();
+            const randomBeneficiaryPhone = `09${Math.floor(Math.random() * 90000000 + 10000000)}`;
+            const randomBeneficiaryAddress = `桃園市桃園區`;
+            const randompremiums = Math.floor(Math.random() * 1000);
+            const randommedicalTreatment = Math.floor(randompremiums / 3);
+            const randomoverseasIllness = Math.floor(randompremiums * 0.8);
+            const randomoverseasFlights = Math.floor(randompremiums / 2);
+            const randomtotalCost = `${randompremiums + randommedicalTreatment + randomoverseasIllness + randomoverseasFlights}`;
+
+            // 生成隨機生效時間（今天或未來30天內）
+            const randomStartDate = getRandomDate(new Date(), addDays(new Date(), 30));
+
+            // 生成隨機結束時間（生效時間後 1 ~ 30 天）
+            const randomEndDate = getRandomDate(new Date(randomStartDate), addDays(new Date(randomStartDate), 30));
+
+            // 填充資料
+            fieldset.querySelector('input[name="insuranceNumber[]"]').value = randomInsuranceNumber;
+            fieldset.querySelector('input[name="username[]"]').value = randomName;
+            fieldset.querySelector('input[name="id_number[]"]').value = randomId;
+            fieldset.querySelector('input[name="phone[]"]').value = randomPhone;
+            fieldset.querySelector('input[name="email[]"]').value = randomEmail;
+            fieldset.querySelector('input[name="address[]"]').value = randomAddress;
+            fieldset.querySelector('input[name="insuranceProduct[]"]').value = randomProduct;
+            fieldset.querySelector('input[name="birthday[]"').value = randomBirthday;
+            fieldset.querySelector('input[name="beneficiaryBirthday[]"').value = randomBenebirthday;
+            fieldset.querySelector('select[name="country[]"]').value = randomCountry;
+            fieldset.querySelector('select[name="sumAssured[]"]').value = randomSumAssured;
+            fieldset.querySelector('select[name="relationship[]"]').value = randomRelationship;
+            fieldset.querySelector('input[name="beneficiaryName[]"]').value = randomBeneficiaryName;
+            fieldset.querySelector('input[name="beneficiaryID[]"]').value = randomBeneficiaryId;
+            fieldset.querySelector('input[name="beneficiaryPhone[]"]').value = randomBeneficiaryPhone;
+            fieldset.querySelector('input[name="beneficiaryAddress[]"]').value = randomBeneficiaryAddress;
+            fieldset.querySelector('input[name="premiums[]"]').value = randompremiums;
+            fieldset.querySelector('input[name="medicalTreatment[]"]').value = randommedicalTreatment;
+            fieldset.querySelector('input[name="overseasIllness[]"]').value = randomoverseasIllness;
+            fieldset.querySelector('input[name="overseasFlights[]"]').value = randomoverseasFlights;
+            fieldset.querySelector('input[name="totalCost[]"]').value = randomtotalCost;
+
+            // 填充生效時間與結束時間
+            fieldset.querySelector('input[name="startTime[]"]').value = randomStartDate;
+            fieldset.querySelector('input[name="endTime[]"]').value = randomEndDate;
+        });
+    }
+
+    function getRandomName() {
+        const names = ['Mike', 'Mary', 'Tom', 'Kevin', 'Ken'];
+        return names[Math.floor(Math.random() * names.length)];
+    }
+
+    function getRandomId() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const firstChar = chars.charAt(Math.floor(Math.random() * chars.length));
+        const secondChar = '1289'.charAt(Math.floor(Math.random() * 4));
+        const numbers = Math.floor(Math.random() * 100000000).toString().padStart(8, '0');
+        return firstChar + secondChar + numbers;
+    }
+
+    function getRandomOption(options) {
+        return options[Math.floor(Math.random() * options.length)];
+    }
+
+    function getRandomDate(start, end) {
+        const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    function addDays(date, days) {
+        const result = new Date(date);
+        result.setDate(result.getDate() + days);
+        return result;
+    }
+</script>
+
+
+</html>

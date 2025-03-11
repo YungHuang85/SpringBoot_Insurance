@@ -1,0 +1,132 @@
+		body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #inputFields {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        fieldset {
+            border: rgb(136, 134, 134) solid 2px;
+        }
+
+        legend {
+            font-size: 18px;
+            color: rgb(77, 73, 73);
+            font-weight: bold;
+        }
+
+        .inputHeader,
+        .inputRow {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .inputHeader {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .inputRow {
+            gap: 5px;
+        }
+
+        .inputRow .inputField {
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        span {
+            margin-bottom: 3px;
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .inputRow input{
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            height: 100%;
+        }
+        
+        select{
+        	padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn1{
+            padding: 8px 10px;
+            background-color: rgb(153, 0, 0);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn2{
+            padding: 8px 10px;
+            background-color: grey;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            padding: 12px 30px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        select { 
+	        padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            height: 100%;
+    }
