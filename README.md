@@ -13,7 +13,7 @@
     - 常見問答
     - 討論區 
 
-# 技術棧
+# 技術架構
 
     Spring Boot - 快速構建 Spring 應用，簡化配置與部署
     Spring MVC - 處理 HTTP 請求，支援 RESTful API
