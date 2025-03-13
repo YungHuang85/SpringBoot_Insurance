@@ -65,7 +65,7 @@
     │   ├── fonts          # 字型資源
     │   ├── static         # 靜態資源
     │   │   ├── picture    # 圖片存放
-    │   ├── templates      # Thymeleaf/HTML 模板
+    │   ├── templates      
     │   ├── application.properties  # 設定檔
     │   ├── logback-spring.xml  # 日誌設定
     │── src/test/java
